@@ -1,0 +1,60 @@
+﻿/* Globalne style dla całej strony */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #88cefc; /* jasny, niebieskawy odcień */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Główny kontener Layoutu */
+.app {
+    display: flex;
+    flex-direction: column;
+    background-color: #88cefc; /* takie samo tło jak body */
+}
+
+/* Stylizacja pudełka na treść */
+.content-wrapper {
+    flex: 1;
+    margin: 2rem auto;
+    max-width: 1200px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+/* Stylizacja logo w navbarze */
+.logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+/* Styl linków */
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+.navbar.bg-body-tertiary {
+    background-color: #88cefc !important;
+}
+
+.footer {
+    background-color: #F0F4FB;
+    padding: 1rem 0;
+    border-top: 1px solid #eaeaea;
+}
