@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,13 +11,33 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export function Layout() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 10;
+            if (isScrolled !== scrolled) {
+                setScrolled(isScrolled);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [scrolled]);
+
     return (
         <div className="app">
-            <Navbar expand="lg" className="bg-body-tertiary">
+            <Navbar
+                expand="lg"
+                className={`bg-body-tertiary ${scrolled ? 'navbar-scrolled' : ''}`}
+            >
                 <Container fluid>
                     <Navbar.Brand>
                         <Link to="/" className="d-block">
-                            <Image src="/image/kotek_1.jpg" className="logo" alt="Logo" />
+                            <Image src="/image/cloudaLogo.png" className="logo" alt="Logo" />
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -25,14 +46,6 @@ export function Layout() {
                             <Nav.Link>
                                 <Link to="/" className="d-block">Home</Link>
                             </Nav.Link>
-                            <NavDropdown title="Magazyn" id="magazyn">
-                                <NavDropdown.Item>
-                                    <Link to="/towar" className="d-block">Towar</Link>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    <Link to="/towary" className="d-block">Towary</Link>
-                                </NavDropdown.Item>
-                            </NavDropdown>
                             <NavDropdown title="Kadry" id="kadry">
                                 <NavDropdown.Item>
                                     <Link to="/pracownik" className="d-block">Pracownik</Link>
@@ -57,6 +70,14 @@ export function Layout() {
                                     <Link to="/kursy" className="d-block">Kursy</Link>
                                 </NavDropdown.Item>
                             </NavDropdown>
+                            <NavDropdown title="Plan Studiow" id="planStudiow">
+                                <NavDropdown.Item>
+                                    <Link to="/planStudiow" className="d-block">PlanStudiow</Link>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    <Link to="/planyStudiow" className="d-block">PlanyStudiow</Link>
+                                </NavDropdown.Item>
+                            </NavDropdown>
                             <NavDropdown title="Inne" id="offcanvasNavbarDropdown-expand">
                                 <NavDropdown.Item href="#action3">Inne 1</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">Inne 2</NavDropdown.Item>
@@ -64,14 +85,9 @@ export function Layout() {
                                 <NavDropdown.Item href="#action5">Inne 3</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
+                        
                         <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
+                            <Button variant="outline-primary">Zapisz sie na studia</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

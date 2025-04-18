@@ -13,6 +13,8 @@ import { Student } from "./student/StudentPage";
 import { Studenci } from "./student/StudenciPage";
 import { Kurs } from "./kurs/KursPage";
 import { Kursy } from "./kurs/KursyPage";
+import { PlanStudiow } from "./planStudiow/PlanStudiowPage.js";
+import { PlanyStudiow } from "./planStudiow/PlanyStudiowPage.js";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
@@ -44,6 +46,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
                 </Route>
                 <Route path='/kursy' element={<Layout />}>
                     <Route index element={<Kursy />} />
+                </Route>
+                <Route path='/planStudiow' element={<Layout />}>
+                    <Route index element={<PlanStudiow />} />
+                </Route>
+                <Route path='/planyStudiow' element={<Layout />}>
+                    <Route index element={<PlanyStudiow />} />
                 </Route>
             </Routes>
         </BrowserRouter>

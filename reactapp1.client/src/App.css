@@ -1,60 +1,120 @@
-﻿/* Globalne style dla całej strony */
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+﻿html, body, #root, .app {
+    min-height: 100vh;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #88cefc; /* jasny, niebieskawy odcień */
+    background-color: #88cefc; /* jasny niebieskawy odcień */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 75px; 
 }
 
-/* Główny kontener Layoutu */
+
 .app {
     display: flex;
     flex-direction: column;
     background-color: #88cefc; /* takie samo tło jak body */
 }
 
-/* Stylizacja pudełka na treść */
 .content-wrapper {
     flex: 1;
     margin: 2rem auto;
-    max-width: 1200px;
+    max-width: 1600px; 
+    width: 95%; 
     background-color: #FFFFFF;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 2rem;
+    margin-top: 1rem;
 }
 
-/* Stylizacja logo w navbarze */
+.container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 .logo {
-    width: 150px;
+    width: 50px;
     height: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-    .logo:hover {
+.logo:hover {
         transform: scale(1.05);
-    }
+}
 
-/* Styl linków */
 a {
     text-decoration: none;
     color: unset;
-}
-
-.navbar.bg-body-tertiary {
-    background-color: #88cefc !important;
 }
 
 .footer {
     background-color: #F0F4FB;
     padding: 1rem 0;
     border-top: 1px solid #eaeaea;
+}
+
+.card-img-responsive {
+    height: 300px !important;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-img-top {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.navbar.bg-body-tertiary {
+    background-color: #88cefc !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+    max-width: 100%; 
+    width: 100%;
+    height: auto; 
+}
+
+.bottom-image img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.dropdown-menu {
+    z-index: 1001;
+}
+
+.navbar .nav-link {
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+        color: #0056b3;
+}
+
+.navbar-scrolled {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(136, 206, 252, 0.95) !important;
+}
+
+.video-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
 }
