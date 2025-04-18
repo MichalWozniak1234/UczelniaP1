@@ -1,1 +1,1 @@
-# UczelniaP1
+# Uczelnia
